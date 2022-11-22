@@ -16,7 +16,7 @@ grep 'RAD' ./pedicularis2.vcf | cut -f 3 >> loci.txt
 
 
 ## Exo 5
--> Notre point de départ : Fichier pedicularis.loci
+--> Notre point de départ : Fichier pedicularis.loci
 
 -> Utilisation d'une boucle sur R pour convertir le fichier pedicularis.loci en .fasta et ajouter le numéro de loci pour chaque séquence.
 ```
