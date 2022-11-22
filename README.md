@@ -45,37 +45,37 @@ cut -f 3- final2.txt | grep '3' >> final3.txt
 
 
 ## Exo 5
--> Notre point de départ : Fichier pedicularis.loci
+→ Notre point de départ : Fichier pedicularis.loci
 
--> Utilisation d'une boucle sur R pour convertir le fichier "pedicularis.loci" en ".fasta" et ajouter le numéro de loci à chaque séquence.
+→ Utilisation d'une boucle sur R pour convertir le fichier "pedicularis.loci" en ".fasta" et ajouter le numéro de loci à chaque séquence.
 ```
 Rscript loci2fasta.R
 ```
 Un fichier fasta est crée pour chaque loci
 
--> Regroupement de nos fichiers fasta en un seul
+→ Regroupement de nos fichiers fasta en un seul
 ```
 cat *.fasta >> all.fasta
 ```
 Ce fichier contient les séquences de 3 individus.
 
--> Sélection du premier individu et création du fichier "all_filter.fasta" 
+→ Sélection du premier individu et création du fichier "all_filter.fasta" 
 ```
 grep -A1 "SRR1754720$" all.fasta | grep -v "^--$" >> all_filter.fasta
 ```
--> Pour décompresser nos bases de données de référence pour les ITS, LSU et SSU
+→ Pour décompresser nos bases de données de référence pour les ITS, LSU et SSU
 ```
 tar xvf ITS_eukaryote_sequences.tar
 tar xvf LSU_eukaryote_rRNA.tar
 tar xvf SSU_eukaryote_rRNA.tar
 ```
 
--> Combiner ces trois bases de données en une seule nommée "reference.all"
+→ Combiner ces trois bases de données en une seule nommée "reference.all"
 ```
 ./blastdb_aliastool -dblist "ITS_eukaryote_sequences SSU_eukaryote_rRNA LSU_eukaryote_rRNA" -dbtype nucl -out reference.all -title "reference"
 ```
 
--> Utilisation de blastn pour visuliser les match entre les bases de données de réference et le fichier fasta contenant tous les loci de l'individu
+→ Utilisation de blastn pour visuliser les match entre les bases de données de réference et le fichier fasta contenant tous les loci de l'individu
 ```
 ./blastn -db reference.all -query all_filter.fasta -max_target_seqs 1 -out test.out -outfmt 6
 ```
