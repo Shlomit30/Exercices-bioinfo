@@ -38,10 +38,12 @@ paste loci.txt variants.txt indiv1.txt indiv2.txt indiv3.txt >>final.txt
 (echo -e "  LOCUS ALLELES IND1 IND2 IND3"; cat final.txt ) >>final2.txt
 ```
 
-→ On fait apparaître que les individus ayant une richesse génétique > 2
+→ On fait apparaître que les locus ayant une richesse génétique > 2
 ```
 cut -f 3- final2.txt | grep '3' >> final3.txt 
 ```
+
+On a donc 165 locus ayant une richesse génétique > 2 
 
 
 ## Exo 5
