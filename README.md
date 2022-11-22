@@ -51,6 +51,6 @@ tar xvf SSU_eukaryote_rRNA.tar
 ./blastn -db reference.all -query all_filter.fasta -max_target_seqs 1 -out test.out -outfmt 6
 ```
 
-Le fichier de sortie "test.out" met en evidence la présence d'un ITS /rDNA au locus : 
+Le fichier de sortie "test.out" met en evidence la présence d'un ITS /rDNA au locus n° ... 
 
 En revenant au fichier "final2.text" généré au cours de l'exercice 4, on note que ce locus présente 2 allèles, ce qui n'est pas supérieur aux reste des loci.
